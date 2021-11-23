@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Banting Bot - Personal Slack chatbot
 # by Riyaad Ali
 # Module 1 - Son's Soccer Schedule
@@ -31,5 +33,7 @@ for tr in soup.find_all('tr')[2:]:
 if field:
   slacker = Slacker()
   slacker.sendMessage("Your son's soccer field - %s" % field, "Today your son will be playing on field *%s*" % field)
-
+else:
+  slacker = Slacker()
+  slacker.sendMessage("No soccer today!", "No soccer today!")
           
