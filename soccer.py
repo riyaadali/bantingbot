@@ -27,9 +27,10 @@ soup = BeautifulSoup(soccerRequest.text, "lxml")
 
 for tr in soup.find_all('tr')[2:]:
     tds = tr.find_all('td')
-    if month_day in str(tds[0]):
-       field = str(tds[6]).replace("<td>PGI-","").replace("</td>","")          
-          
+    
+    if month_day.replace('0','') in str(tds[0]):
+      field = str(tds[6]).replace("<td>PGI-","").replace("</td>","")          
+
 if field:
   slacker = Slacker()
   slacker.sendMessage("Your son's soccer field - %s" % field, "Today your son will be playing on field *%s*" % field)
